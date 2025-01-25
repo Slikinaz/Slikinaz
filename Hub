@@ -1,0 +1,11 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("test hub", "Midnight ")
+
+local Tab = Window:NewTab("movesets")
+local Section = Tab:NewSection("gojo v2")
+
+Section:NewButton("ButtonText", "ButtonInfo", function()
+    getgenv().speedpunch= true ---tp and normal Punch 
+getgenv().dance= false ---song made by rebzyyx all I want is you 
+loadstring(game:HttpGet('https://raw.githubusercontent.com/Kenjihin69/Kenjihin69/refs/heads/main/Saitama%20to%20Shinji'))()
+end)
