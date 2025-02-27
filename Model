@@ -1,0 +1,108 @@
+local function waffle()
+    local player = game.Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    local rootPart = character:WaitForChild("HumanoidRootPart")
+    local tweenS = game:GetService("TweenService")
+
+    local ModelId = 108174908926713
+
+    local d = game:GetObjects("rbxassetid://" .. ModelId)[1]
+
+    d.Parent = workspace
+
+    if d then
+        wait(1)
+        d.CFrame = rootPart.CFrame * CFrame.new(0, 5, -5)
+        d.Anchored = true
+        tweenS:Create(d, TweenInfo.new(3), {CFrame = rootPart.CFrame * CFrame.new(0, 5, -500)}):Play()
+    end
+end
+
+task.delay(0.7, function()
+coroutine.wrap(function()
+
+local ts = game:GetService("TweenService")
+local Dialogue = Instance.new("BillboardGui")
+local Chat1 = Instance.new("Frame")
+local Sub = Instance.new("TextLabel")
+local Chat2 = Instance.new("Frame")
+local Sub_1 = Instance.new("TextLabel")
+
+local function tweenProperty(object, properties, duration)
+local tweenInfo = TweenInfo.new(duration, Enum.EasingStyle.Cubic, Enum.EasingDirection.InOut)
+local tween = ts:Create(object, tweenInfo, properties)
+tween:Play()
+end
+
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+
+Dialogue.Active = true
+Dialogue.Size = UDim2.new(15, 0, 15, 0)
+Dialogue.StudsOffset = Vector3.new(0.1, 0, 2)
+Dialogue.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+Dialogue.Name = [[Dialogue]]
+Dialogue.Parent = humanoidRootPart
+
+Chat1.AnchorPoint = Vector2.new(0.5, 0.5)
+Chat1.BackgroundColor3 = Color3.new(1, 1, 1)
+Chat1.BorderColor3 = Color3.new(0, 0, 0)
+Chat1.BorderSizePixel = 1.7
+Chat1.Position = UDim2.new(0.6, 0, 0.5, 0) 
+Chat1.Size = UDim2.new(0.115, 0, 0.16, 0)
+Chat1.Name = [[IM HIGH]]
+Chat1.BackgroundTransparency = 1
+Chat1.Parent = Dialogue
+
+Sub.FontFace = Font.new("rbxassetid://12187375716", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+Sub.Text = [[SCALE OF THE DRAGON]] --text1
+Sub.TextColor3 = Color3.new(0, 0, 0)
+Sub.TextScaled = true
+Sub.TextSize = 20
+Sub.TextWrapped = true
+Sub.AnchorPoint = Vector2.new(0.5, 0.5)
+Sub.BackgroundColor3 = Color3.new(1, 1, 1)
+Sub.TextTransparency = 1
+Sub.BorderColor3 = Color3.new(0, 0, 0)
+Sub.BorderSizePixel = 0
+Sub.Position = UDim2.new(0.5, 0, 0.53, 0)
+Sub.Size = UDim2.new(0.6, 0, 1, 0)
+Sub.Name = [[E]]
+Sub.Parent = Chat1
+Sub.BackgroundTransparency = 1
+task.delay(2, function()
+    Sub.Text = [[RECOIL]]
+    wait(1)
+    Sub.Text = [[TWIN METEORS]]
+    wait(1)
+    Sub.Text = [[THINK FAST]]
+    waffle()
+end
+
+
+
+
+
+game.Debris:AddItem(Chat1, 25)
+game.Debris:AddItem(Chat2, 25)
+game.Debris:AddItem(Sub, 25)
+game.Debris:AddItem(Sub_1, 25)
+
+local duration = 0.4
+
+tweenProperty(Chat1, {BackgroundTransparency = 0}, duration)
+tweenProperty(Sub, {TextTransparency = 0}, duration)
+tweenProperty(Chat2, {BackgroundTransparency = 0}, duration)
+tweenProperty(Sub_1, {TextTransparency = 0}, duration)
+
+tweenProperty(Chat1, {Position = UDim2.new(0.6, 0, 0.4, 0)}, 0.6)
+tweenProperty(Chat2, {Position = UDim2.new(0.35, 0, 0.5, 0)}, 0.6)
+task.wait(1.6)
+tweenProperty(Chat1, {BackgroundTransparency = 1}, 2)
+tweenProperty(Sub, {TextTransparency = 1}, 2)
+tweenProperty(Chat2, {BackgroundTransparency = 1}, 2)
+tweenProperty(Sub_1, {TextTransparency = 1}, 2)
+
+end)()
+end)
